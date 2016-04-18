@@ -1,0 +1,47 @@
+{
+  "name": "mqtt-play",
+  "version": "0.0.1",
+  "description": "Message queue for processing TTS",
+  "author": "DSTIL",
+  "license": "MIT",
+  "repository": {},
+  "bugs": {},
+  "bin": "./index.js",
+  "dependencies": {
+    "mqtt": "1.8.0",
+    "play-sound": "0.0.8",
+    "config.json": "0.0.4"
+  },
+  "devDependencies": {
+    "husky": "0.11.4"
+  },
+  "engines": {
+    "node": ">= 4"
+  },
+  "keywords": [
+    "service",
+    "tts",
+    "queue",
+    "audio",
+    "player"
+  ],
+  "jshintConfig": {
+    "curly": true,
+    "devel": true,
+    "eqeqeq": true,
+    "eqnull": true,
+    "evil": true,
+    "esversion": 6,
+    "expr": true,
+    "noarg": true,
+    "node": true,
+    "onevar": true,
+    "strict": true,
+    "trailing": true,
+    "undef": true,
+    "unused": true
+  }, 
+  "scripts": {
+    "precommit": "jshint index.js && cd module/ &&find . -name '*.js' -print0 | xargs -0 jshint"
+  }
+}
