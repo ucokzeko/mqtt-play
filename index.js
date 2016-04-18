@@ -2,6 +2,7 @@
 
 const mqtt = require('mqtt');
 const config = require('config.json')('./config.json');
+const player = require('./module/player.js')();
 
 let client = mqtt.connect('mqtt://localhost');
 
@@ -12,4 +13,5 @@ client.on('connect', function () {
 client.on('message', function (topic, message) {
   console.log('-- Message received ---');
   console.log('Audio path: ' + message.toString());
+  player.addAudio(message.toString());
 });

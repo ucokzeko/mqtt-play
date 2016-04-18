@@ -9,6 +9,7 @@
   "bin": "./index.js",
   "dependencies": {
     "mqtt": "1.8.0",
+    "play-sound": "0.0.8",
     "config.json": "0.0.4"
   },
   "devDependencies": {
@@ -41,6 +42,6 @@
     "unused": true
   }, 
   "scripts": {
-    "precommit": "jshint index.js"
+    "precommit": "jshint index.js && cd module/ &&find . -name '*.js' -print0 | xargs -0 jshint"
   }
 }
