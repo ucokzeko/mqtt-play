@@ -5,8 +5,8 @@ let playlist = [];
 let isPlaying = false;
 
 function Player() {
-  this.addAudio = function(msgString) {
-    playlist.push(msgString);
+  this.addAudio = function(path) {
+    playlist.push(path);
     console.log('Path added. Current list:');
     console.log(playlist);
     if (!isPlaying) {
