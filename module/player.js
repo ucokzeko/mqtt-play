@@ -7,7 +7,8 @@ let isPlaying = false;
 function Player() {
   this.addAudio = function(msgString) {
     playlist.push(msgString);
-    console.log('Path added');
+    console.log('Path added. Current list:');
+    console.log(playlist);
     if (!isPlaying) {
       play(playlist.shift());
     }
@@ -15,13 +16,13 @@ function Player() {
 }
 
 function play(path) {
-  console.log('Playlist: ' + playlist);
+  console.log('Currently playing: ' + path);
   isPlaying = true;
   player.play(path, function(err){
     if (err) {
       console.log(err);
     } else if (playlist.length > 0) {
-      console.log('Playing next one');
+      console.log('Playing next one. Current list size: ' + playlist.length);
       play(playlist.shift());
     } else {
       console.log('Finished');
