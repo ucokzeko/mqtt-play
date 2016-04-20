@@ -1,5 +1,5 @@
 const mqtt = require('mqtt');
-const config = require('config.json')('./config.json');
+const config = require('config.json')(`${__dirname}/config.json`);
 const player = require('./module/player.js')();
 
 const client = mqtt.connect('mqtt://localhost');
