@@ -21,6 +21,7 @@
     "eslint": "^1.9.0"
   },
   "scripts": {
+    "start": "node --use_strict ./src/index.js",
     "lint": "eslint src"
   }
 }
