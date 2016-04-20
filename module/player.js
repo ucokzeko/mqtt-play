@@ -1,4 +1,5 @@
-const player = require('play-sound')(); 
+const execFile = require('child_process').execFile;
+const config = require('config.json')(`${__dirname}/../config.json`);
 let playlist = [];
 let isPlaying = false;
 
@@ -16,9 +17,10 @@ function Player() {
 function play(path) {
   console.log('Currently playing: ' + path);
   isPlaying = true;
-  player.play(path, function(err){
-    if (err) {
-      console.log(err);
+
+  const child = execFile(config.player.command, [path], (error, stdout, stderr) => {
+    if (error) {
+      console.log(error);
     } else if (playlist.length > 0) {
       console.log('Playing next one. Current list size: ' + playlist.length);
       play(playlist.shift());

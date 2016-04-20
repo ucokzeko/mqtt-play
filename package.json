@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "mqtt": "1.8.0",
-    "play-sound": "0.0.8",
     "config.json": "0.0.4"
   },
   "devDependencies": {
