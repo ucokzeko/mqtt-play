@@ -1,5 +1,3 @@
-"use strict";
-
 const player = require('play-sound')(); 
 let playlist = [];
 let isPlaying = false;

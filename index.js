@@ -1,5 +1,3 @@
-"use strict";
-
 const mqtt = require('mqtt');
 const config = require('config.json')('./config.json');
 const player = require('./module/player.js')();
