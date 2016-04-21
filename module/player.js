@@ -1,12 +1,12 @@
-const player = require('play-sound')(); 
-let playlist = [];
+const execFile = require('child_process').execFile;
+const config = require('config.json')(`${__dirname}/../config.json`);
+const playlist = [];
 let isPlaying = false;
 
 function Player() {
-  this.addAudio = function(path) {
+  this.addAudio = (path) => {
+    console.log('New audio added to playlist');
     playlist.push(path);
-    console.log('Path added. Current list:');
-    console.log(playlist);
     if (!isPlaying) {
       play(playlist.shift());
     }
@@ -14,21 +14,22 @@ function Player() {
 }
 
 function play(path) {
-  console.log('Currently playing: ' + path);
   isPlaying = true;
-  player.play(path, function(err){
-    if (err) {
-      console.log(err);
+  console.log('Playing audio. Current list:');
+  console.log(playlist);
+  execFile(config.player.command, [path], (error, stdout, stderr) => {
+    if (error) {
+      console.error(stderr, error);
     } else if (playlist.length > 0) {
-      console.log('Playing next one. Current list size: ' + playlist.length);
       play(playlist.shift());
     } else {
-      console.log('Finished');
       isPlaying = false;
+      console.log('Finished playing');
     }
   });
 }
 
-module.exports = function(){
-  return new Player();
+module.exports = () => {
+  const p = new Player();
+  return p;
 };

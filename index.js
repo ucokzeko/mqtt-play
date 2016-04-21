@@ -4,12 +4,11 @@ const player = require('./module/player.js')();
 
 const client = mqtt.connect('mqtt://localhost');
 
-client.on('connect', function () {
+client.on('connect', () => {
   client.subscribe(config.channel.sub);
 });
- 
-client.on('message', function (topic, message) {
-  console.log('-- Message received ---');
-  console.log('Audio path: ' + message.toString());
+
+client.on('message', (topic, message) => {
+  console.log(`Message received: ${message.toString()}`);
   player.addAudio(message.toString());
 });

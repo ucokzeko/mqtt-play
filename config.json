@@ -1,5 +1,7 @@
 {
   "channel" : {
     "sub": "play/audio"
+  }, "player" : {
+    "command": "afplay"
   }
 }
