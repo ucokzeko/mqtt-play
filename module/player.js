@@ -1,11 +1,12 @@
 const execFile = require('child_process').execFile;
 const config = require('config.json')(`${__dirname}/../config.json`);
 const playlist = [];
+const winston = require('winston');
 let isPlaying = false;
 
 function Player() {
   this.addAudio = (path) => {
-    console.log('New audio added to playlist');
+    winston.info('New audio added to playlist');
     playlist.push(path);
     if (!isPlaying) {
       play(playlist.shift());
@@ -15,16 +16,16 @@ function Player() {
 
 function play(path) {
   isPlaying = true;
-  console.log('Playing audio. Current list:');
-  console.log(playlist);
+  winston.info('Playing audio. Current list:');
+  winston.info(playlist);
   execFile(config.player.command, [path], (error, stdout, stderr) => {
     if (error) {
-      console.error(stderr, error);
+      winston.info(stderr, error);
     } else if (playlist.length > 0) {
       play(playlist.shift());
     } else {
       isPlaying = false;
-      console.log('Finished playing');
+      winston.info('Finished playing');
     }
   });
 }

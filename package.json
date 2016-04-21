@@ -9,8 +9,8 @@
   "bin": "./index.js",
   "dependencies": {
     "mqtt": "1.8.0",
-    "play-sound": "0.0.8",
-    "config.json": "0.0.4"
+    "config.json": "0.0.4",
+    "winston": "2.2.0"
   },
   "devDependencies": {
     "eslint": "^2.8.0",
