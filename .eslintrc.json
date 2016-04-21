@@ -1,0 +1,14 @@
+{
+  "extends": "airbnb",
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "no-multi-spaces":      0,
+    "no-use-before-define": 0,
+    "key-spacing":          ["error", { "align": "value" }],
+    "comma-dangle":         ["error", "never"],
+    "max-len":              ["error", {"code": 150, "tabWidth": 4, "ignoreUrls": true}],
+    "max-depth":            ["error", {"max": 4}]
+  }
+}
