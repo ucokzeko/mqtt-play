@@ -20,7 +20,7 @@ function play(path) {
   winston.info(playlist);
   execFile(config.player.command, [path], (error, stdout, stderr) => {
     if (error) {
-      winston.info(stderr, error);
+      winston.error(stderr, error);
     } else if (playlist.length > 0) {
       play(playlist.shift());
     } else {
