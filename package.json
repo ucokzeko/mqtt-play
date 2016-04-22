@@ -4,9 +4,14 @@
   "description": "Message queue for processing TTS",
   "author": "DSTIL",
   "license": "MIT",
-  "repository": {},
-  "bugs": {},
-  "bin": "./index.js",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dstil/mqtt-play.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dstil/mqtt-play/issues"
+  },
   "dependencies": {
     "mqtt": "1.8.0",
     "config.json": "0.0.4",
@@ -19,6 +24,7 @@
     "eslint-plugin-react": "^4.3.0"
   },
   "scripts": {
-    "lint": "eslint index.js module/**"
+    "start": "node --use_strict ./src/index.js",
+    "lint": "eslint src"
   }
 }
