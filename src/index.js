@@ -6,7 +6,7 @@ const winston = require('winston');
 const client = mqtt.connect('mqtt://localhost');
 
 client.on('connect', () => {
-  client.subscribe(config.channel.sub);
+  client.subscribe(config.topic.sub);
 });
 
 client.on('message', (topic, message) => {
