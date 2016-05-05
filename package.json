@@ -15,7 +15,9 @@
   "dependencies": {
     "mqtt": "1.8.0",
     "config.json": "0.0.4",
-    "winston": "2.2.0"
+    "winston": "2.2.0",
+    "chai": "^3.4.0",
+    "mocha": "^2.3.3"
   },
   "devDependencies": {
     "eslint": "^2.8.0",
@@ -25,6 +27,7 @@
   },
   "scripts": {
     "start": "node --use_strict ./src/index.js",
+    "test": "mocha --use_strict --recursive --compilers js:babel-core/register",
     "lint": "eslint src"
   }
 }
