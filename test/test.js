@@ -22,7 +22,7 @@ function launchService() {
         fullfil();
       }
       if (data.indexOf('Finished playing') > -1) {
-        winston.info('Test succeeded');
+        winston.info('Test succeed');
         process.exit();
       }
     });
