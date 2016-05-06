@@ -7,6 +7,7 @@ const client = mqtt.connect('mqtt://localhost');
 
 client.on('connect', () => {
   client.subscribe(config.topic.sub);
+  winston.info(`Subscribed topic: ${config.topic.sub}`);
 });
 
 client.on('message', (topic, message) => {
