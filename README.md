@@ -1,6 +1,6 @@
 # mqtt-play
 
-Node app that listens to MQTT queue on specific topic (can be found in `./src/config.json`) and play an audio file on a path.
+Node app that listens to MQTT queue on specific topic (can be found in `./src/config.json`) and plays an audio file on a path.
 
 ### Setup Basics
 - `git clone https://github.com/ucokzeko/mqtt-play.git`
