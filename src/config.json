@@ -1,7 +1,5 @@
 {
   "topic" : {
     "sub": "play/audio"
-  }, "player" : {
-    "command": "afplay"
   }
 }
