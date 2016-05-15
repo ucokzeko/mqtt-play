@@ -2,6 +2,10 @@ PreCommit:
   OvercommitConfig:
     enabled: true
     description: Check lab hooks are configured
+  EsLint:
+    enabled: true
+    required_executable: './node_modules/.bin/eslint'
+    command: ['./node_modules/.bin/eslint', './src']
 
 CommitMsg:
   CommitTag:
