@@ -6,6 +6,11 @@ PreCommit:
     enabled: true
     required_executable: './node_modules/.bin/eslint'
     command: ['./node_modules/.bin/eslint', './src']
+  ChangeTogether:
+    enabled: true
+    description: Check if Nix expressions need to be updated
+    files: ['package.json', 'package.nix', 'default.nix']
+    message: "run 'rm default.nix && npm2nix package.json package.nix'"
 
 CommitMsg:
   CommitTag:

@@ -1,5 +1,4 @@
 const execFile = require('child_process').execFile;
-const config = require('config.json')(`${__dirname}/../config.json`);
 const playlist = [];
 const winston = require('winston');
 let isPlaying = false;
@@ -18,7 +17,7 @@ function play(path) {
   isPlaying = true;
   winston.info('Playing audio. Current list:');
   winston.info(playlist);
-  execFile(config.player.command, [path], (error, stdout, stderr) => {
+  execFile(process.env.PLAY_COMMAND, [path], (error, stdout, stderr) => {
     if (error) {
       winston.error(stderr, error);
     } else if (playlist.length > 0) {
