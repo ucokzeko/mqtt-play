@@ -19,7 +19,7 @@ describe('mqtt-play', () => {
 
     it('should throw an error when when file doesn\'t exist', (done) => {
       assert.throws(() => {
-        player.addAudio(`${__dirname}/../audio/audio.mp3`)
+        player.addAudio(`${__dirname}/../audio/audio.mp3`);
       },
       Error,
       'Function does throw');
@@ -28,7 +28,6 @@ describe('mqtt-play', () => {
   });
   describe('play command', () => {
     const execFile = require('child_process').execFile;
-    const config = require(`${__dirname}/../../src/config.json`);
     it('should play an audio without an error when command is available', function (done) {
       this.timeout(1000 * 5);
       execFile(process.env.PLAY_COMMAND, [`${__dirname}/../audio/test.mp3`], (error) => {
