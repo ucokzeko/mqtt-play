@@ -1,14 +1,21 @@
+const fs       = require('fs');
+const winston  = require('winston');
 const execFile = require('child_process').execFile;
+
 const playlist = [];
-const winston = require('winston');
-let isPlaying = false;
+let isPlaying  = false;
 
 function Player() {
   this.addAudio = (path) => {
-    winston.info('New audio added to playlist');
-    playlist.push(path);
-    if (!isPlaying) {
-      play(playlist.shift());
+    try {
+      fs.lstatSync(path);
+      playlist.push(path);
+      if (!isPlaying) {
+        play(playlist.shift());
+      }
+      winston.info(`${path} has been added to audio list.`);
+    } catch (e) {
+      throw new Error(`${path} is invalid.`);
     }
   };
 }
