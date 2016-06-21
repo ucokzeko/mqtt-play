@@ -17,7 +17,7 @@ in rec {
     name = "mqtt-play-0.0.1";
     src = [ tarball ];
     buildInputs = nodePackages.nativeDeps."mqtt-play" or [];
-    deps = [ nodePackages.by-spec."mqtt"."1.8.0" nodePackages.by-spec."config.json"."0.0.4" nodePackages.by-spec."winston"."2.2.0" ];
+    deps = [ nodePackages.by-spec."mqtt"."1.8.0" nodePackages.by-spec."config.json"."0.0.4" nodePackages.by-spec."winston"."2.2.0" nodePackages.by-spec."mocha"."^2.5.3" ];
     peerDependencies = [];
   };
 }
