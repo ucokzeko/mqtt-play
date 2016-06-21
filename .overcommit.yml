@@ -11,6 +11,9 @@ PreCommit:
     description: Check if Nix expressions need to be updated
     files: ['package.json', 'package.nix', 'default.nix']
     message: "run 'rm default.nix && npm2nix package.json package.nix'"
+  MochaUnitTest:
+    enabled: true
+    description: Run unit test
 
 CommitMsg:
   CommitTag:
