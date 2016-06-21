@@ -15,7 +15,7 @@ function Player() {
       }
       winston.info(`${path} has been added to audio list.`);
     } catch (e) {
-      throw new Error(`${path} is invalid.`);
+      throw e;
     }
   };
 }
