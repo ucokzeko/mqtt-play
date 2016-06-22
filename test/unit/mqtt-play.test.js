@@ -1,4 +1,3 @@
-/* eslint-disable */
 const assert = require('assert');
 
 if (!process.env.PLAY_COMMAND) { throw new Error('PLAY_COMMAND environment variable not set'); }
