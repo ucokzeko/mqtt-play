@@ -8,8 +8,14 @@ describe('mqtt-play', () => {
       assert.doesNotThrow(() => {
         player.addAudio(`${__dirname}/../audio/test.mp3`);
       },
-      Error,
-      'Function does not throw');
+      (error) => {
+        if (error instanceof Error) {
+          return error;
+        } else {
+          return false;
+        }
+      }
+      );
       done();
     });
 
