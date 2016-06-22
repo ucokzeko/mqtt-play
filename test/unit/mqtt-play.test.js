@@ -21,7 +21,7 @@ describe('mqtt-play', () => {
       assert.throws(() => {
         player.addAudio(`${__dirname}/../audio/audio.mp3`);
       },
-      Error,
+      /no such file or directory/,
       'Function does throw');
       done();
     });
