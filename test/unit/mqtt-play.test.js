@@ -9,10 +9,7 @@ describe('mqtt-play', () => {
       assert.doesNotThrow(() => {
         player.addAudio(`${__dirname}/../audio/test.mp3`);
       },
-      (error) => {
-        if (error instanceof Error) { return error; }
-        return false;
-      }
+      (error) => error
       );
       done();
     });
