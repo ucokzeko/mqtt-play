@@ -7,16 +7,12 @@ let isPlaying  = false;
 
 function Player() {
   this.addAudio = (path) => {
-    try {
-      fs.lstatSync(path);
-      playlist.push(path);
-      if (!isPlaying) {
-        play(playlist.shift());
-      }
-      winston.info(`${path} has been added to audio list.`);
-    } catch (e) {
-      throw e;
+    fs.lstatSync(path);
+    playlist.push(path);
+    if (!isPlaying) {
+      play(playlist.shift());
     }
+    winston.info(`${path} has been added to audio list.`);
   };
 }
 
