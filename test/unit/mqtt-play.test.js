@@ -6,7 +6,7 @@ if (!process.env.PLAY_COMMAND) {
 }
 
 describe('mqtt-play', () => {
-  describe('add audio file function', () => {
+  describe('Player#addAudio()', () => {
     const player = require('${__dirname}/../../src/module/player.js')();
     it('should play audio without an error when file exists', (done) => {
       assert.doesNotThrow(() => {
