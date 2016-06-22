@@ -12,7 +12,7 @@
     "max-depth":            ["error", {"max": 4}]
   },
   "globals": {
-    "it": false,
+    "it":       false,
     "describe": false
   }
 }
