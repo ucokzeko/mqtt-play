@@ -683,18 +683,18 @@
     cpu = [ ];
   };
   by-spec."del"."^2.0.2" =
-    self.by-version."del"."2.2.0";
-  by-version."del"."2.2.0" = self.buildNodePackage {
-    name = "del-2.2.0";
-    version = "2.2.0";
+    self.by-version."del"."2.2.1";
+  by-version."del"."2.2.1" = self.buildNodePackage {
+    name = "del-2.2.1";
+    version = "2.2.1";
     bin = false;
     src = fetchurl {
-      url = "https://registry.npmjs.org/del/-/del-2.2.0.tgz";
-      name = "del-2.2.0.tgz";
-      sha1 = "9a50f04bf37325e283b4f44e985336c252456bd5";
+      url = "https://registry.npmjs.org/del/-/del-2.2.1.tgz";
+      name = "del-2.2.1.tgz";
+      sha1 = "f6763026472209c4f0349111c5ac280868bec4fe";
     };
     deps = {
-      "globby-4.1.0" = self.by-version."globby"."4.1.0";
+      "globby-5.0.0" = self.by-version."globby"."5.0.0";
       "is-path-cwd-1.0.0" = self.by-version."is-path-cwd"."1.0.0";
       "is-path-in-cwd-1.0.0" = self.by-version."is-path-in-cwd"."1.0.0";
       "object-assign-4.1.0" = self.by-version."object-assign"."4.1.0";
@@ -1064,9 +1064,9 @@
       "estraverse-4.2.0" = self.by-version."estraverse"."4.2.0";
       "esutils-2.0.2" = self.by-version."esutils"."2.0.2";
       "file-entry-cache-1.2.4" = self.by-version."file-entry-cache"."1.2.4";
-      "glob-7.0.4" = self.by-version."glob"."7.0.4";
+      "glob-7.0.5" = self.by-version."glob"."7.0.5";
       "globals-9.8.0" = self.by-version."globals"."9.8.0";
-      "ignore-3.1.2" = self.by-version."ignore"."3.1.2";
+      "ignore-3.1.3" = self.by-version."ignore"."3.1.3";
       "imurmurhash-0.1.4" = self.by-version."imurmurhash"."0.1.4";
       "inquirer-0.12.0" = self.by-version."inquirer"."0.12.0";
       "is-my-json-valid-2.13.1" = self.by-version."is-my-json-valid"."2.13.1";
@@ -1431,7 +1431,7 @@
       sha1 = "73d6df4a28502160a05e059544a6aeeae8b0047a";
     };
     deps = {
-      "del-2.2.0" = self.by-version."del"."2.2.0";
+      "del-2.2.1" = self.by-version."del"."2.2.1";
       "graceful-fs-4.1.4" = self.by-version."graceful-fs"."4.1.4";
       "read-json-sync-1.1.1" = self.by-version."read-json-sync"."1.1.1";
       "write-0.2.1" = self.by-version."write"."0.2.1";
@@ -1521,40 +1521,16 @@
     os = [ ];
     cpu = [ ];
   };
-  by-spec."glob"."^6.0.1" =
-    self.by-version."glob"."6.0.4";
-  by-version."glob"."6.0.4" = self.buildNodePackage {
-    name = "glob-6.0.4";
-    version = "6.0.4";
-    bin = false;
-    src = fetchurl {
-      url = "https://registry.npmjs.org/glob/-/glob-6.0.4.tgz";
-      name = "glob-6.0.4.tgz";
-      sha1 = "0f08860f6a155127b2fadd4f9ce24b1aab6e4d22";
-    };
-    deps = {
-      "inflight-1.0.5" = self.by-version."inflight"."1.0.5";
-      "inherits-2.0.1" = self.by-version."inherits"."2.0.1";
-      "minimatch-3.0.2" = self.by-version."minimatch"."3.0.2";
-      "once-1.3.3" = self.by-version."once"."1.3.3";
-      "path-is-absolute-1.0.0" = self.by-version."path-is-absolute"."1.0.0";
-    };
-    optionalDependencies = {
-    };
-    peerDependencies = [];
-    os = [ ];
-    cpu = [ ];
-  };
   by-spec."glob"."^7.0.0" =
-    self.by-version."glob"."7.0.4";
-  by-version."glob"."7.0.4" = self.buildNodePackage {
-    name = "glob-7.0.4";
-    version = "7.0.4";
+    self.by-version."glob"."7.0.5";
+  by-version."glob"."7.0.5" = self.buildNodePackage {
+    name = "glob-7.0.5";
+    version = "7.0.5";
     bin = false;
     src = fetchurl {
-      url = "https://registry.npmjs.org/glob/-/glob-7.0.4.tgz";
-      name = "glob-7.0.4.tgz";
-      sha1 = "3b44afa0943bdc31b2037b934791e2e084bcb7f6";
+      url = "https://registry.npmjs.org/glob/-/glob-7.0.5.tgz";
+      name = "glob-7.0.5.tgz";
+      sha1 = "b4202a69099bbb4d292a7c1b95b6682b67ebdc95";
     };
     deps = {
       "fs.realpath-1.0.0" = self.by-version."fs.realpath"."1.0.0";
@@ -1571,7 +1547,7 @@
     cpu = [ ];
   };
   by-spec."glob"."^7.0.3" =
-    self.by-version."glob"."7.0.4";
+    self.by-version."glob"."7.0.5";
   by-spec."globals"."^9.2.0" =
     self.by-version."globals"."9.8.0";
   by-version."globals"."9.8.0" = self.buildNodePackage {
@@ -1591,21 +1567,21 @@
     os = [ ];
     cpu = [ ];
   };
-  by-spec."globby"."^4.0.0" =
-    self.by-version."globby"."4.1.0";
-  by-version."globby"."4.1.0" = self.buildNodePackage {
-    name = "globby-4.1.0";
-    version = "4.1.0";
+  by-spec."globby"."^5.0.0" =
+    self.by-version."globby"."5.0.0";
+  by-version."globby"."5.0.0" = self.buildNodePackage {
+    name = "globby-5.0.0";
+    version = "5.0.0";
     bin = false;
     src = fetchurl {
-      url = "https://registry.npmjs.org/globby/-/globby-4.1.0.tgz";
-      name = "globby-4.1.0.tgz";
-      sha1 = "080f54549ec1b82a6c60e631fc82e1211dbe95f8";
+      url = "https://registry.npmjs.org/globby/-/globby-5.0.0.tgz";
+      name = "globby-5.0.0.tgz";
+      sha1 = "ebd84667ca0dbb330b99bcfc68eac2bc54370e0d";
     };
     deps = {
       "array-union-1.0.2" = self.by-version."array-union"."1.0.2";
       "arrify-1.0.1" = self.by-version."arrify"."1.0.1";
-      "glob-6.0.4" = self.by-version."glob"."6.0.4";
+      "glob-7.0.5" = self.by-version."glob"."7.0.5";
       "object-assign-4.1.0" = self.by-version."object-assign"."4.1.0";
       "pify-2.3.0" = self.by-version."pify"."2.3.0";
       "pinkie-promise-2.0.1" = self.by-version."pinkie-promise"."2.0.1";
@@ -1698,15 +1674,15 @@
     cpu = [ ];
   };
   by-spec."ignore"."^3.1.2" =
-    self.by-version."ignore"."3.1.2";
-  by-version."ignore"."3.1.2" = self.buildNodePackage {
-    name = "ignore-3.1.2";
-    version = "3.1.2";
+    self.by-version."ignore"."3.1.3";
+  by-version."ignore"."3.1.3" = self.buildNodePackage {
+    name = "ignore-3.1.3";
+    version = "3.1.3";
     bin = false;
     src = fetchurl {
-      url = "https://registry.npmjs.org/ignore/-/ignore-3.1.2.tgz";
-      name = "ignore-3.1.2.tgz";
-      sha1 = "dd17765e9233b4019762ba82b892202b0980161b";
+      url = "https://registry.npmjs.org/ignore/-/ignore-3.1.3.tgz";
+      name = "ignore-3.1.3.tgz";
+      sha1 = "9e890c0652519115ae9427da47516bd54d1d6999";
     };
     deps = {
     };
@@ -2233,7 +2209,7 @@
     os = [ ];
     cpu = [ ];
   };
-  by-spec."minimatch"."2 || 3" =
+  by-spec."minimatch"."^3.0.2" =
     self.by-version."minimatch"."3.0.2";
   by-version."minimatch"."3.0.2" = self.buildNodePackage {
     name = "minimatch-3.0.2";
@@ -3158,7 +3134,7 @@
       sha1 = "62ba947fa4c0b4363839aefecd4f0fbad6059726";
     };
     deps = {
-      "glob-7.0.4" = self.by-version."glob"."7.0.4";
+      "glob-7.0.5" = self.by-version."glob"."7.0.5";
     };
     optionalDependencies = {
     };
