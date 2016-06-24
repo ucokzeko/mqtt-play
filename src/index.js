@@ -14,7 +14,11 @@ if (process.env.PLAY_COMMAND) {
 
   client.on('message', (topic, message) => {
     winston.info(`Message received: ${message.toString()}`);
-    player.addAudio(message.toString());
+    try {
+      player.addAudio(message.toString());
+    } catch (e) {
+      winston.error(e);
+    }
   });
 } else {
   winston.error('Missing PLAY_COMMAND environment variable');

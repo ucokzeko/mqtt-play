@@ -10,5 +10,9 @@
     "comma-dangle":         ["error", "never"],
     "max-len":              ["error", {"code": 150, "tabWidth": 4, "ignoreUrls": true}],
     "max-depth":            ["error", {"max": 4}]
+  },
+  "globals": {
+    "it":       false,
+    "describe": false
   }
 }
