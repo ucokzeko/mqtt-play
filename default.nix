@@ -20,4 +20,7 @@ in rec {
     deps = [ nodePackages.by-spec."mqtt"."1.8.0" nodePackages.by-spec."config.json"."0.0.4" nodePackages.by-spec."winston"."2.2.0" nodePackages.by-spec."mocha"."^2.5.3" ];
     peerDependencies = [];
   };
+  dev = build.override {
+    buildInputs = build.buildInputs ++ [ nodePackages.by-spec."eslint"."^2.8.0" nodePackages.by-spec."eslint-config-airbnb"."^7.0.0" nodePackages.by-spec."eslint-plugin-jsx-a11y"."^0.6.2" nodePackages.by-spec."eslint-plugin-react"."^4.3.0" ];
+  };
 }
