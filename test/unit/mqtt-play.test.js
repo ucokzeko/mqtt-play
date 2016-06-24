@@ -8,8 +8,8 @@ describe('mqtt-play', () => {
     it('should play audio without an error when file exists', (done) => {
       assert.doesNotThrow(() => {
         player.addAudio(`${__dirname}/../audio/test.mp3`);
-      },
-      (error) => error
+      }, (error) =>
+        error
       );
       done();
     });
