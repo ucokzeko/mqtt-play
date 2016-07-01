@@ -23,4 +23,9 @@ in rec {
     '';
     doCheck = true;
   });
+
+  # Will be run in a container with all Detox services running
+  integrationTest = ''
+    echo NOTE: No integration tests for mqtt-play.
+  '';
 }
