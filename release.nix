@@ -26,6 +26,7 @@ in rec {
 
   # Will be run in a container with all Detox services running
   integrationTest = ''
-    echo NOTE: No integration tests for mqtt-play.
+    cd ${test}/lib/node_modules/mqtt-play
+    INTEGRATION_TESTING=1 ${pkgs.nodejs}/bin/npm run integration
   '';
 }

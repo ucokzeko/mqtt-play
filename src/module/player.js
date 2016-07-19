@@ -5,22 +5,22 @@ const execFile = require('child_process').execFile;
 const playlist = [];
 let isPlaying  = false;
 
-function Player() {
+function Player(playCommand) {
   this.addAudio = (path) => {
     fs.lstatSync(path);
     playlist.push(path);
     if (!isPlaying) {
-      play(playlist.shift());
+      play(playCommand, playlist.shift());
     }
     winston.info(`${path} has been added to audio list.`);
   };
 }
 
-function play(path) {
+function play(playCommand, path) {
   isPlaying = true;
   winston.info('Playing audio. Current list:');
   winston.info(playlist);
-  execFile(process.env.PLAY_COMMAND, [path], (error, stdout, stderr) => {
+  execFile(playCommand, [path], (error, stdout, stderr) => {
     if (error) {
       winston.error(stderr, error);
     } else if (playlist.length > 0) {
@@ -32,7 +32,4 @@ function play(path) {
   });
 }
 
-module.exports = () => {
-  const p = new Player();
-  return p;
-};
+module.exports = (playCommand) => new Player(playCommand);
