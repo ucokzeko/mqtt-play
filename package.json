@@ -27,6 +27,7 @@
   "scripts": {
     "start": "node --use_strict ./src/index.js",
     "test": "mocha --use_strict ./test/unit/",
+    "integration": "node --use_strict ./test/test.js",
     "lint": "eslint src"
   }
 }

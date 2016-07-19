@@ -7,14 +7,19 @@ const config  = require('config.json')('./src/config.json');
 const mqttConfig = { qos: 1 };
 
 launchService()
-.then(() => {
-  publishToPlayer();
-});
+.then(publishToPlayer);
 
 function launchService() {
   return new Promise((fullfil) => {
-    winston.info('Launching player service...');
-    const service = spawn('npm', ['start']);
+    const service = (() => {
+      if (process.env.INTEGRATION_TESTING) {
+        winston.info('Connecting to service journal...');
+        return spawn('journalctl', ['-fu', 'mqtt-play']);
+      } else {
+        winston.info('Launching player service...');
+        return spawn('npm', ['start']);
+      }
+    })();
 
     service.stdout.on('data', (data) => {
       winston.info(`MQTT-Play log: ${data}`);
@@ -32,7 +37,7 @@ function launchService() {
     });
 
     service.on('close', (code) => {
-      winston.info(`MQTT-Play exited with code ${code}`);
+      winston.info(`Process exited with code ${code}`);
     });
   });
 }
@@ -43,6 +48,6 @@ function publishToPlayer() {
   client.publish(config.topic.sub, message, mqttConfig);
   setTimeout(() => {
     winston.error(new Error('Test failed (Waiting timeout)'));
-    process.exit();
+    process.exit(1);
   }, 10000);
 }

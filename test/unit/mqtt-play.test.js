@@ -4,7 +4,7 @@ if (!process.env.PLAY_COMMAND) { throw new Error('PLAY_COMMAND environment varia
 
 describe('mqtt-play', () => {
   describe('Player#addAudio()', () => {
-    const player = require(`${__dirname}/../../src/module/player.js`)();
+    const player = require(`${__dirname}/../../src/module/player.js`)(process.env.PLAY_COMMAND);
     it('should play audio without an error when file exists', (done) => {
       assert.doesNotThrow(() => {
         player.addAudio(`${__dirname}/../audio/test.mp3`);
