@@ -1,25 +1,15 @@
-const mqtt = require('mqtt');
-const config = require('config.json')(`${__dirname}/config.json`);
+const mqtt      = require('mqtt');
+const winston   = require('winston');
 const playerCon = require('./module/player.js');
-const winston = require('winston');
+const consts    = require(`${__dirname}/support/constants`);
 
-const client = mqtt.connect('mqtt://localhost');
+const client = mqtt.connect(consts.mqttHost);
 
-const playCommand = (() => {
-  if (process.env.INTEGRATION_TESTING) {
-    return 'echo';
-  } else if (process.env.PLAY_COMMAND) {
-    return process.env.PLAY_COMMAND;
-  }
-
-  throw new Error('Missing PLAY_COMMAND environment variable');
-})();
-
-const player = playerCon(playCommand);
-winston.info(`Player command: ${playCommand}`);
+const player = playerCon(consts.playCommand);
+winston.info(`Player command: ${consts.playCommand}`);
 client.on('connect', () => {
-  client.subscribe(config.topic.sub);
-  winston.info(`Subscribed topic: ${config.topic.sub}`);
+  client.subscribe(consts.playTopic);
+  winston.info(`Subscribed topic: ${consts.playTopic}`);
 });
 
 client.on('message', (topic, message) => {
