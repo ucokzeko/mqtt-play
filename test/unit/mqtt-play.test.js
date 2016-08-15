@@ -1,10 +1,9 @@
 const assert = require('assert');
-
-if (!process.env.PLAY_COMMAND) { throw new Error('PLAY_COMMAND environment variable not set'); }
+const consts = require(`${__dirname}/../../src/support/constants`);
 
 describe('mqtt-play', () => {
   describe('Player#addAudio()', () => {
-    const player = require(`${__dirname}/../../src/module/player.js`)(process.env.PLAY_COMMAND);
+    const player = require(`${__dirname}/../../src/module/player.js`)(consts.playCommand);
     it('should play audio without an error when file exists', (done) => {
       assert.doesNotThrow(() => {
         player.addAudio(`${__dirname}/../audio/test.mp3`);
