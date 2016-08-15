@@ -17,6 +17,7 @@ in rec {
   test = pkgs.lib.overrideDerivation pkg.dev (o: {
     name = "${o.name}-test";
     checkPhase = ''
+      export MOSQUITTO_ADDRESS=mqtt://localhost:1883
       export PLAY_COMMAND=${pkgs.sox}/bin/play
       npm run lint
       npm run unitTests
