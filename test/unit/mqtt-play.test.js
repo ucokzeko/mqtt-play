@@ -1,10 +1,9 @@
 const assert = require('assert');
-const consts = require(`${__dirname}/../../src/support/constants`);
 
 describe('mqtt-play', () => {
   describe('Player#addAudio()', () => {
-    const player = require(`${__dirname}/../../src/module/player.js`)(consts.playCommand);
-    it('should play audio without an error when file exists', (done) => {
+    const player = require(`${__dirname}/../../src/module/player.js`)('echo');
+    it('should add test audio file without an error when file exists', (done) => {
       assert.doesNotThrow(() => {
         player.addAudio(`${__dirname}/../audio/test.mp3`);
       }, (error) =>
