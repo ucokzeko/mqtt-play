@@ -2,7 +2,7 @@ const mqtt    = require('mqtt');
 const winston = require('winston');
 const spawn   = require('child_process').spawn;
 const client  = mqtt.connect('mqtt://localhost');
-const config  = require('config.json')('./src/config.json');
+const consts  = require(`${__dirname}/../src/support/constants`);
 
 const mqttConfig = { qos: 1 };
 
@@ -23,7 +23,7 @@ function launchService() {
 
     service.stdout.on('data', (data) => {
       winston.info(`MQTT-Play log: ${data}`);
-      if (data.indexOf(config.topic.sub) > -1) {
+      if (data.indexOf(consts.playTopic) > -1) {
         fullfil();
       }
       if (data.indexOf('Finished playing') > -1) {
@@ -43,9 +43,9 @@ function launchService() {
 }
 
 function publishToPlayer() {
-  winston.info(`Publishing message to topic ${config.topic.sub}`);
+  winston.info(`Publishing message to topic ${consts.playTopic}`);
   const message = `${__dirname}/audio/test.mp3`;
-  client.publish(config.topic.sub, message, mqttConfig);
+  client.publish(consts.playTopic, message, mqttConfig);
   setTimeout(() => {
     winston.error(new Error('Test failed (Waiting timeout)'));
     process.exit(1);
